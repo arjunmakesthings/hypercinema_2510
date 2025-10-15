@@ -1,15 +1,15 @@
 //0s and 1s to print on a6 sheets.
 
 //a6 at 300 dpi.
-let pw = 298;
-let ph = 420;
+let pw = 298*2;
+let ph = 420*2;
 
-let side_margins = 30;
-let edge_margins = 100;
+let side_margins = 30*2;
+let edge_margins = 100*2;
 
 //font sizes:
-const foreground = 10;
-const max_background = 4.5;
+const foreground = 10*2;
+const max_background = 4.5*2;
 
 //font variables:
 let serif; //noto.
