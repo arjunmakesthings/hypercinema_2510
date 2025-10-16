@@ -1,15 +1,15 @@
 //0s and 1s to print on a6 sheets.
 
 //a6 at 300 dpi.
-let pw = 298*2;
-let ph = 420*2;
+let pw = 298 * 2;
+let ph = 420 * 2;
 
-let side_margins = 30*2;
-let edge_margins = 100*2;
+let side_margins = 30 * 2;
+let edge_margins = 100 * 2;
 
 //font sizes:
-const foreground = 10*2;
-const max_background = 4.5*2;
+const foreground = 10 * 2;
+const max_background = 4.5 * 2;
 
 //font variables:
 let serif; //noto.
@@ -23,7 +23,7 @@ let black = 0;
 
 let binaries = [];
 
-let pdf; 
+let pdf;
 
 function preload() {
   serif = loadFont("./noto-serif-hebrew_regular.ttf");
@@ -43,19 +43,26 @@ function setup() {
     }
   }
 
-  pdf = createPDF(); 
-  pdf.beginRecord(); 
+  pdf = createPDF();
+  pdf.beginRecord();
 }
 
 function draw() {
   background(bg);
 
+  //frame:
+  push();
+  stroke(190);
+  rect(0, 0, width, height);
+  pop();
+
   //display all binaries:
   for (let binary of binaries) {
     binary.display();
   }
-  pdf.save(); 
-  noLoop(); 
+  pdf.save();
+
+  noLoop();
 }
 
 class Binary {
