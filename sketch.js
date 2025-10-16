@@ -1,6 +1,6 @@
 //0s and 1s to print on a6 sheets.
 
-//a6 at 300 dpi.
+//a6 at 72*2 dpi.
 let pw = 298 * 2;
 let ph = 420 * 2;
 
@@ -25,7 +25,7 @@ let binaries = [];
 let characters = [];
 
 let pdf;
-let pdf_shit = false;
+let pdf_shit = false; //change this to save as pdf.
 
 function preload() {
   serif = loadFont("./noto-serif-hebrew_regular.ttf");
@@ -40,22 +40,29 @@ function setup() {
   //set defaults:
   noStroke();
 
-  // create binaries:
+  make_binaries();
+  make_characters();
+
+  if (pdf_shit == true) {
+    pdf = createPDF();
+    pdf.beginRecord();
+  }
+}
+
+//binary-constructor(x, y, w, h).
+function make_binaries() {
   for (let x = side_margins + foreground; x <= width - side_margins - foreground; x += max_background) {
     let y_pos = random(edge_margins, height - edge_margins);
     for (let y = y_pos; y <= height - edge_margins; y += max_background) {
       binaries.push(new Binary(x, y));
     }
   }
+}
 
-  //create characters:
+//character-constructor: constructor(x, y, t, t_size).
+function make_characters() {
   characters[0] = new Character(side_margins, height - edge_margins - foreground, "i", foreground);
   characters[1] = new Character(width - side_margins, height - edge_margins - foreground, "u", foreground);
-
-  if (pdf_shit == true) {
-    pdf = createPDF();
-    pdf.beginRecord();
-  }
 }
 
 function draw() {
