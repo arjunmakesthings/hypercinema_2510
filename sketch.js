@@ -51,15 +51,28 @@ function setup() {
 
 //binary-constructor(x, y, w, h).
 function make_binaries() {
-  //make a building.
+  // define left and right edges between the two characters
+  let leftEdge = side_margins + foreground * 2;
+  let rightEdge = width - side_margins - foreground * 1.8;
 
-  let w = random(foreground * 2, width / 2);
+  let columnSpacing = max_background; // horizontal step for each column
 
-  for (let x = side_margins + foreground; x < w; x += max_background) {
-    binaries.push(new Binary(x, height - edge_margins - foreground));
+  // start from the left, add buildings until we reach the right edge
+  for (let x = leftEdge; x < rightEdge; ) {
+    let buildingWidth = int(random(3, 20)) * columnSpacing; // width in columns
+    let buildingHeight = random(10, 45); // number of digits vertically
+
+    // build the building: multiple vertical stacks across the width
+    for (let bx = x; bx < x + buildingWidth && bx < rightEdge; bx += columnSpacing) {
+      for (let i = 0; i < buildingHeight; i++) {
+        let y = height - edge_margins - foreground - i * (max_background + 2);
+        binaries.push(new Binary(bx, y));
+      }
+    }
+
+    // move to the next building start
+    x += buildingWidth + columnSpacing; // small gap between buildings
   }
-
-  let w2 = random(w, )
 }
 
 //character-constructor: constructor(x, y, t, t_size).
@@ -91,33 +104,34 @@ function draw() {
     pdf.save();
   }
 
+  ui(); 
+
   // noLoop();
+}
+
+function ui(){
+  
 }
 
 class Binary {
   constructor(x, y) {
-    //construction is the same as a rectangle.
     this.x = x;
     this.y = y;
-
     this.t = random(["0", "1"]);
   }
+
   display() {
     push();
-
-    //set defaults:
     textAlign(LEFT, TOP);
-
     fill(grey);
-
     textFont(mono);
     textSize(max_background);
     text(this.t, this.x, this.y);
     this.t = random(["0", "1"]);
-
     pop();
   }
 }
+
 
 class Character {
   constructor(x, y, t, t_size) {
