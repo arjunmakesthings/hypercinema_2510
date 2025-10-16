@@ -22,8 +22,10 @@ let bg = 255;
 let black = 0;
 
 let binaries = [];
+let characters = [];
 
 let pdf;
+let pdf_shit = false;
 
 function preload() {
   serif = loadFont("./noto-serif-hebrew_regular.ttf");
@@ -33,18 +35,27 @@ function preload() {
 function setup() {
   createCanvas(pw, ph);
 
+  frameRate(12);
+
   //set defaults:
   noStroke();
 
-  //create binaries:
-  for (let x = side_margins; x <= width - side_margins; x += max_background) {
-    for (let y = edge_margins; y <= height - edge_margins; y += max_background) {
+  // create binaries:
+  for (let x = side_margins + foreground; x <= width - side_margins - foreground; x += max_background) {
+    let y_pos = random(edge_margins, height - edge_margins);
+    for (let y = y_pos; y <= height - edge_margins; y += max_background) {
       binaries.push(new Binary(x, y));
     }
   }
 
-  pdf = createPDF();
-  pdf.beginRecord();
+  //create characters:
+  characters[0] = new Character(side_margins, height - edge_margins - foreground, "i", foreground);
+  characters[1] = new Character(width - side_margins, height - edge_margins - foreground, "u", foreground);
+
+  if (pdf_shit == true) {
+    pdf = createPDF();
+    pdf.beginRecord();
+  }
 }
 
 function draw() {
@@ -53,6 +64,7 @@ function draw() {
   //frame:
   push();
   stroke(190);
+  noFill();
   rect(0, 0, width, height);
   pop();
 
@@ -60,9 +72,17 @@ function draw() {
   for (let binary of binaries) {
     binary.display();
   }
-  pdf.save();
 
-  noLoop();
+  //display characters:
+  for (let character of characters) {
+    character.display();
+  }
+
+  if (pdf_shit == true) {
+    pdf.save();
+  }
+
+  // noLoop();
 }
 
 class Binary {
@@ -85,6 +105,32 @@ class Binary {
 
     textFont(mono);
     textSize(max_background);
+    text(this.t, this.x, this.y);
+    this.t = random(["0", "1"]);
+
+    // pop();
+  }
+}
+
+class Character {
+  constructor(x, y, t, t_size) {
+    //construction is the same as a rectangle.
+    this.x = x;
+    this.y = y;
+
+    this.t = t;
+    this.t_size = t_size;
+  }
+  display() {
+    // push();
+
+    //set defaults:
+    textAlign(LEFT, TOP);
+
+    fill(red);
+
+    textFont(serif);
+    textSize(this.t_size);
     text(this.t, this.x, this.y);
 
     // pop();
