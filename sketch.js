@@ -18,7 +18,7 @@ let mono; // source.
 //colour variables:
 let red = "#c02126";
 let grey = "#bcbec0";
-let bg = 255;
+let bg = 190;
 let black = 0;
 
 let binaries = [];
@@ -49,6 +49,12 @@ function setup() {
 
 function draw() {
   background(bg);
+
+  //boundary: 
+  push(); 
+  stroke (190); 
+  rect (0,0,width,height); 
+  pop(); 
 
   //display all binaries:
   for (let binary of binaries) {
