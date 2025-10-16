@@ -92,12 +92,11 @@ function draw() {
 }
 
 class Binary {
-  constructor(x, y, w, h) {
+  constructor(x, y) {
     //construction is the same as a rectangle.
     this.x = x;
     this.y = y;
-    this.w = w;
-    this.h = h;
+
 
     this.t = random(["0", "1"]);
   }
