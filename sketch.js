@@ -18,6 +18,7 @@ let mono; // source.
 //colour variables:
 let red = "#c02126";
 let grey = "#bcbec0";
+let dark_grey = "#6d6e71";
 let bg = 255;
 let black = 0;
 
@@ -110,7 +111,12 @@ function draw() {
 }
 
 function ui(){
-  
+  push(); 
+  textAlign(CENTER, CENTER); 
+  textFont(serif); 
+  fill (dark_grey); 
+  text ("separated by these buildings of alternating electricity", width/2, height-50); 
+  pop();
 }
 
 class Binary {
