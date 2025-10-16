@@ -18,7 +18,7 @@ let mono; // source.
 //colour variables:
 let red = "#c02126";
 let grey = "#bcbec0";
-let bg = 190;
+let bg = 255;
 let black = 0;
 
 let binaries = [];
@@ -68,11 +68,11 @@ function make_characters() {
 function draw() {
   background(bg);
   //frame:
-  push();
-  stroke(190);
-  noFill();
-  rect(0, 0, width, height);
-  pop();
+  // push();
+  // stroke(190);
+  // noFill();
+  // rect(0, 0, width, height);
+  // pop();
 
   //display all binaries:
   for (let binary of binaries) {
@@ -102,7 +102,7 @@ class Binary {
     this.t = random(["0", "1"]);
   }
   display() {
-    // push();
+    push();
 
     //set defaults:
     textAlign(LEFT, TOP);
@@ -114,7 +114,7 @@ class Binary {
     text(this.t, this.x, this.y);
     this.t = random(["0", "1"]);
 
-    // pop();
+    pop();
   }
 }
 
@@ -128,7 +128,7 @@ class Character {
     this.t_size = t_size;
   }
   display() {
-    // push();
+    push();
 
     //set defaults:
     textAlign(LEFT, TOP);
@@ -139,6 +139,6 @@ class Character {
     textSize(this.t_size);
     text(this.t, this.x, this.y);
 
-    // pop();
+    pop();
   }
 }
