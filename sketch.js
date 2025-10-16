@@ -51,12 +51,15 @@ function setup() {
 
 //binary-constructor(x, y, w, h).
 function make_binaries() {
-  for (let x = side_margins + foreground; x <= width - side_margins - foreground; x += max_background) {
-    let y_pos = random(edge_margins, height - edge_margins);
-    for (let y = y_pos; y <= height - edge_margins; y += max_background) {
-      binaries.push(new Binary(x, y));
-    }
+  //make a building.
+
+  let w = random(foreground * 2, width / 2);
+
+  for (let x = side_margins + foreground; x < w; x += max_background) {
+    binaries.push(new Binary(x, height - edge_margins - foreground));
   }
+
+  let w2 = random(w, )
 }
 
 //character-constructor: constructor(x, y, t, t_size).
@@ -96,7 +99,6 @@ class Binary {
     //construction is the same as a rectangle.
     this.x = x;
     this.y = y;
-
 
     this.t = random(["0", "1"]);
   }
