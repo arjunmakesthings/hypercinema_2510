@@ -99,7 +99,7 @@ function ui() {
   textAlign(CENTER, CENTER);
   textFont(serif);
   fill(dark_grey);
-  text("are we the only ones stuck with humanity?", width / 2, height - 50);
+  text("i wonder — are we the only ones stuck with humanity?", width / 2, height - 50);
   pop();
 }
 

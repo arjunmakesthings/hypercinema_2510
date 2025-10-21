@@ -115,7 +115,7 @@ function ui() {
   textAlign(CENTER, CENTER);
   textFont(serif);
   fill(dark_grey);
-  text("separated by these buildings of alternating electricity", width / 2, height - 50);
+  text("this is a story about you & i, in twenty-fifty.", width / 2, height - 50);
   pop();
 }
 

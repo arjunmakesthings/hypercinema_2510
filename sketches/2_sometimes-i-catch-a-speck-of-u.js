@@ -152,7 +152,7 @@ function ui() {
   textAlign(CENTER, CENTER);
   textFont(serif);
   fill(dark_grey);
-  text("sometimes, i catch a speck of u", width / 2, height - 50);
+  text("sometimes, i catch a speck of you.", width / 2, height - 50);
   pop();
 }
 

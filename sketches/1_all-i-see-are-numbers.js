@@ -101,7 +101,7 @@ function ui() {
   textAlign(CENTER, CENTER);
   textFont(serif);
   fill(dark_grey);
-  text("my world is filled with numbers on the street.", width / 2, height - 50);
+  text("i live in a world full of binaries.", width / 2, height - 50);
   pop();
 }
 

@@ -95,7 +95,7 @@ function ui() {
   textAlign(CENTER, CENTER);
   textFont(serif);
   fill(dark_grey);
-  text("we only speak in code", width / 2, height - 50);
+  text("but my words never seem to reach you.", width / 2, height - 50);
   pop();
 }
 
