@@ -50,9 +50,6 @@ function setup() {
     pdf = createPDF();
     pdf.beginRecord();
   }
-  // //this is for capturing the image to send to runway:
-  // save("frame.jpeg");
-  // noLoop();
 }
 
 function make_binaries() {
@@ -181,3 +178,9 @@ class Character {
     pop();
   }
 }
+
+// function mousePressed() {
+//   //this is for capturing the image to send to runway:
+//   save("frame.jpeg");
+//   noLoop();
+// }
