@@ -208,3 +208,9 @@ class Character {
     pop();
   }
 }
+
+// //this is for capturing the image to send to runway:
+// function mousePressed() {
+//   save("frame.jpeg");
+//   noLoop();
+// }

@@ -88,6 +88,8 @@ function draw() {
     pdf.save();
   }
 
+  // //this is for capturing the image to send to runway: 
+  // save ("frame.jpeg"); 
   // noLoop();
 }
 

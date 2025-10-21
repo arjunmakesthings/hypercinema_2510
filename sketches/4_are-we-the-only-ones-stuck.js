@@ -92,6 +92,10 @@ function draw() {
   if (pdf_shit == true) {
     pdf.save();
   }
+
+  // // //this is for capturing the image to send to runway:
+  // save("frame.jpeg");
+  // noLoop();
 }
 
 function ui() {

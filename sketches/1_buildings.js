@@ -107,6 +107,10 @@ function draw() {
 
   ui();
 
+  // //this is for capturing the image to send to runway:
+  // save("frame.jpeg");
+  // noLoop();
+
   // noLoop();
 }
 
