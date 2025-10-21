@@ -18,6 +18,7 @@ let mono; // source.
 //colour variables:
 let red = "#c02126";
 let grey = "#bcbec0";
+let dark_grey = "#6d6e71";
 let bg = 255;
 let black = 0;
 
@@ -28,8 +29,8 @@ let pdf;
 let pdf_shit = false; //change this to save as pdf.
 
 function preload() {
-  serif = loadFont("./noto-serif-hebrew_regular.ttf");
-  mono = loadFont("./source-code-pro_medium.ttf");
+  serif = loadFont("/assets/noto-serif-hebrew_regular.ttf");
+  mono = loadFont("/assets/source-code-pro_medium.ttf");
 }
 
 function setup() {
@@ -51,11 +52,27 @@ function setup() {
 
 //binary-constructor(x, y, w, h).
 function make_binaries() {
-  for (let x = side_margins + foreground; x <= width - side_margins - foreground; x += max_background) {
-    let y_pos = random(edge_margins, height - edge_margins);
-    for (let y = y_pos; y <= height - edge_margins; y += max_background) {
-      binaries.push(new Binary(x, y));
+  // define left and right edges between the two characters
+  let leftEdge = side_margins + foreground * 2;
+  let rightEdge = width - side_margins - foreground * 1.8;
+
+  let columnSpacing = max_background; // horizontal step for each column
+
+  // start from the left, add buildings until we reach the right edge
+  for (let x = leftEdge; x < rightEdge; ) {
+    let buildingWidth = int(random(3, 20)) * columnSpacing; // width in columns
+    let buildingHeight = random(10, 45); // number of digits vertically
+
+    // build the building: multiple vertical stacks across the width
+    for (let bx = x; bx < x + buildingWidth && bx < rightEdge; bx += columnSpacing) {
+      for (let i = 0; i < buildingHeight; i++) {
+        let y = height - edge_margins - foreground - i * (max_background + 2);
+        binaries.push(new Binary(bx, y));
+      }
     }
+
+    // move to the next building start
+    x += buildingWidth + columnSpacing; // small gap between buildings
   }
 }
 
@@ -88,31 +105,35 @@ function draw() {
     pdf.save();
   }
 
+  ui();
+
   // noLoop();
+}
+
+function ui() {
+  push();
+  textAlign(CENTER, CENTER);
+  textFont(serif);
+  fill(dark_grey);
+  text("separated by these buildings of alternating electricity", width / 2, height - 50);
+  pop();
 }
 
 class Binary {
   constructor(x, y) {
-    //construction is the same as a rectangle.
     this.x = x;
     this.y = y;
-
-
     this.t = random(["0", "1"]);
   }
+
   display() {
     push();
-
-    //set defaults:
     textAlign(LEFT, TOP);
-
     fill(grey);
-
     textFont(mono);
     textSize(max_background);
     text(this.t, this.x, this.y);
     this.t = random(["0", "1"]);
-
     pop();
   }
 }
