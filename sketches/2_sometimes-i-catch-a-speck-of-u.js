@@ -61,10 +61,6 @@ function setup() {
     pdf = createPDF();
     pdf.beginRecord();
   }
-
-  // //this is for capturing the image to send to runway:
-  // save("frame.jpeg");
-  // noLoop();
 }
 
 function make_windows() {
@@ -212,3 +208,9 @@ class Character {
     pop();
   }
 }
+
+// //this is for capturing the image to send to runway:
+// function mousePressed(){
+//   save("frame.jpeg");
+//   noLoop();
+// }
