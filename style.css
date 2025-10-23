@@ -168,10 +168,11 @@ video {
 
 /* FOOTER */
 footer {
-  height: 60vh;
+  height: 40vh;
   display: flex;
+  flex-direction: column; 
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0 25vw;
   box-sizing: border-box;
 }
@@ -206,4 +207,10 @@ footer.visible .line {
     order: 3;
     padding: 1rem 0;
   }
+}
+
+#ender{
+  font-size: 0.75rem; 
+  color: var(--secondary); 
+  margin-bottom: 3rem; 
 }
