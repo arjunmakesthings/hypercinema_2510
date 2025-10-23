@@ -2,7 +2,7 @@
   --white: #fff;
   --text: #111;
   --muted: #666;
-  --maxWidth: 1920px;
+  --maxWidth: 1800px;
 }
 
 html, body {
@@ -53,7 +53,7 @@ section {
 .frame {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 4.2rem;
+  gap: 2.2rem;
   width: 100%;
   max-width: var(--maxWidth);
   margin: 50px auto;
