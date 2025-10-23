@@ -2,7 +2,7 @@
   --white: #fff;
   --text: #111;
   --muted: #666;
-  --maxWidth: 1800px;
+  --maxWidth: 1700px;
 
   /* color variables from website: */
   --bg: rgb(253, 253, 253);
@@ -22,14 +22,16 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Noto Serif Hebrew";
+  background: white;
+  color: var(--primary);
+  font-family: "Alegreya Sans";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 
   font-size: 16px;
+
+  text-wrap: pretty; 
 }
 
 /* generic section base */
@@ -53,12 +55,12 @@ section {
 
 /*changes only the main text  */
 .intro .line {
-  font-size: 1rem;
+  font-size: 1.4rem;
   line-height: 1.15;
-  color: var(--text);
+  color: var(--primary);
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 900ms cubic-bezier(0.2, 0.9, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  transition: opacity 3000ms cubic-bezier(0.2, 0.9, 0.2, 1), transform 3000ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 .intro.visible .line {
   opacity: 1;
@@ -69,7 +71,7 @@ section {
 .frame {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2.2rem;
+  gap: 2rem;
   width: 100%;
   max-width: var(--maxWidth);
   margin: 50px auto;
@@ -85,7 +87,7 @@ section {
 .frame .video-container {
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transition: opacity 1000ms ease, transform 1000ms ease;
   will-change: opacity, transform;
 }
 .frame.visible .sketch-container,
@@ -101,7 +103,6 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -131,12 +132,11 @@ video {
 /* captions */
 .caption {
   font-size: 0.6rem;
-  color: var(--muted);
+  color: var(--secondary);
   text-align: left;
   justify-content: center;
   padding: 0 0.09rem;
   /* border-left: 3px solid grey; */
-  opacity: 0.95;
   margin:  0.25rem 0 0 0rem ;
 
   box-sizing: border-box;
@@ -154,16 +154,16 @@ video {
   justify-content: center; 
   padding: 0 1rem;
 
+  /* just hard coded everything */
   width: 100%;
   height: 87%; 
 }
 .text p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 400; 
   line-height: 1.4;
   margin: 0;
-  color: var(--text);
-  opacity: 0.98;
+  color: var(--primary);
 }
 
 /* FOOTER */
@@ -172,12 +172,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 0 25vw;
   box-sizing: border-box;
 }
 footer .line {
-  font-size: clamp(16px, 1.6vw, 22px);
-  color: var(--text);
+  font-size: 1.4rem;
+  color: var(--primary);
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 900ms ease, transform 900ms ease;
