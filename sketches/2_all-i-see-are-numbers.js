@@ -31,8 +31,8 @@ let pdf_shit = false; //change this to save as pdf.
 let vanishingY; // horizon / vanishing point height
 
 function preload() {
-  serif = loadFont("/assets/noto-serif-hebrew_regular.ttf");
-  mono = loadFont("/assets/source-code-pro_medium.ttf");
+  serif = loadFont("../assets/noto-serif-hebrew_regular.ttf");
+  mono = loadFont("../assets/source-code-pro_medium.ttf");
 }
 
 function setup() {

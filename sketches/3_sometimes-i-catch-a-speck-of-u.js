@@ -42,8 +42,8 @@ let uIndex = -1; // which binary currently holds the "u"
 let uProbability = 0.75; // 75% chance per cycle to show a "u"
 
 function preload() {
-  serif = loadFont("/assets/noto-serif-hebrew_regular.ttf");
-  mono = loadFont("/assets/source-code-pro_medium.ttf");
+  serif = loadFont("../assets/noto-serif-hebrew_regular.ttf");
+  mono = loadFont("../assets/source-code-pro_medium.ttf");
 }
 
 function setup() {

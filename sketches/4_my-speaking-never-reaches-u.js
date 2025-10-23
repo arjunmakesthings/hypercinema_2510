@@ -33,8 +33,8 @@ let launchInterval = 5000; // 5 seconds
 let nextCharacterIndex = 0; // alternate between 0 and 1
 
 function preload() {
-  serif = loadFont("/assets/noto-serif-hebrew_regular.ttf");
-  mono = loadFont("/assets/source-code-pro_medium.ttf");
+  serif = loadFont("../assets/noto-serif-hebrew_regular.ttf");
+  mono = loadFont("../assets/source-code-pro_medium.ttf");
 }
 
 function setup() {
