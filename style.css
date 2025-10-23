@@ -3,17 +3,33 @@
   --text: #111;
   --muted: #666;
   --maxWidth: 1800px;
+
+  /* color variables from website: */
+  --bg: rgb(253, 253, 253);
+  --primary: rgb(60, 60, 60);
+  --secondary: rgb(120, 120, 120);
+  --tertiary: rgb(240, 240, 240);
+
+  /* font-sizes from website */
+  /* employing a fluid-typography-scale, the settings of which are here:
+https://utopia.fyi/type/calculator?c=320,12,1.2,1920,16,1.2,3,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  --base-minus-one: clamp(0.625rem, 0.5833rem + 0.2083vw, 0.8333rem);
+  --base_size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  background: var(--white);
+  background: var(--bg);
   color: var(--text);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Noto Serif Hebrew";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+
+  font-size: 16px;
 }
 
 /* generic section base */
@@ -34,15 +50,15 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+/*changes only the main text  */
 .intro .line {
-  font-size: clamp(20px, 2.6vw, 36px);
+  font-size: 1rem;
   line-height: 1.15;
-  max-width: 900px;
   color: var(--text);
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 900ms cubic-bezier(.2,.9,.2,1),
-              transform 900ms cubic-bezier(.2,.9,.2,1);
+  transition: opacity 900ms cubic-bezier(0.2, 0.9, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 .intro.visible .line {
   opacity: 1;
@@ -91,46 +107,59 @@ section {
 }
 
 /* sketch + video sizing */
-.sketch-box, .video-box {
-  width: 596px;              /* fixed to canvas width */
-  height: 840px;             /* fixed to canvas height */
+.sketch-box,
+.video-box {
+  width: 596px; /* fixed to canvas width */
+  height: 840px; /* fixed to canvas height */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #fafafa;
-  border: 1px solid #eee;
+  border: 1px solid var(--tertiary);
   box-sizing: border-box;
 }
 
-iframe, video {
+iframe,
+video {
   width: 100%;
   height: 100%;
   border: none;
   display: block;
   object-fit: contain;
-  background: #fafafa;
 }
 
 /* captions */
 .caption {
-  font-size: 0.9rem;
+  font-size: 0.6rem;
   color: var(--muted);
-  text-align: center;
+  text-align: left;
+  justify-content: center;
+  padding: 0 0.09rem;
+  /* border-left: 3px solid grey; */
   opacity: 0.95;
+  margin:  0.25rem 0 0 0rem ;
+
+  box-sizing: border-box;
+
+  width: 100%;
 }
 
 /* text column */
 .text {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column; 
+  gap: 1.2rem;
+  align-items: left;
+  text-align: left;
+  justify-content: center; 
   padding: 0 1rem;
-  max-width: 520px;
+
+  width: 100%;
+  height: 87%; 
 }
 .text p {
-  font-size: clamp(16px, 1.4vw, 22px);
+  font-size: 0.8rem;
+  font-weight: 400; 
   line-height: 1.4;
   margin: 0;
   color: var(--text);
