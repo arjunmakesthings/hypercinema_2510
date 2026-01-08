@@ -1,8 +1,8 @@
 //0s and 1s to print on a6 sheets.
 
 //a6 at 72*2 dpi.
-let pw = 298 * 2;
-let ph = 420 * 2;
+let pw = 298 * 2; //596. 
+let ph = 420 * 2; //840.
 
 let side_margins = 30 * 2;
 let edge_margins = 100 * 2;

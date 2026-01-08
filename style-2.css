@@ -55,3 +55,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* #endregion */
 
+.frame {
+  margin: 0;
+  padding: 10rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* key line */
+  align-items: center;
+
+  background-color: red;
+
+  width: 100vw;
+  height: 100vh;
+}
